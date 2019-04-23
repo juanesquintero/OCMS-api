@@ -73,7 +73,7 @@ var Actividad = db.sequelize.define(
       allowNull: true
     }
   },
-  { timestamps: true }
+  // { timestamps: true }
 );
 
 module.exports = Actividad;

@@ -13,12 +13,12 @@ router.get("/", (req, res) => {
     });
 });
 
-//GET Actividad by identificacion
-router.get("/:identificacion", (req, res) => {
-  let id = req.params.identificacion;
+//GET Actividad by codigo
+router.get("/:codigo", (req, res) => {
+  let cod = req.params.codigo;
   Actividad.findOne({
     where: {
-      identificacion: id
+      codigo: cod
     }
   })
     .then(Actividad => {
@@ -51,10 +51,10 @@ router.post("/", (req, res) => {
 });
 
 //DELETE Actividad
-router.delete("/:identificacion", (req, res) => {
-  let id = req.params.identificacion;
+router.delete("/:codigo", (req, res) => {
+  let id = req.params.codigo;
   Actividad.destroy({
-    where: { identificacion: id }
+    where: { codigo: id }
   })
     .then(() => {
       res.json({ satatus: "Actividad Eliminado" });
@@ -65,15 +65,15 @@ router.delete("/:identificacion", (req, res) => {
 });
 
 //PUT Actividad
-router.put("/:identificacion", (req, res) => {
-  let id = req.params.identificacion;
+router.put("/:codigo", (req, res) => {
+  let id = req.params.codigo;
   if (!req.body) {
     return res
       .status(400)
       .sendStatus({ success: false, message: "Bad Request", info: null });
   } else {
     Actividad.update(req.body, {
-      where: { identificacion: id }
+      where: { codigo: id }
     })
       .then(() => {
         res.json({ status: "Actividad actualizado" });

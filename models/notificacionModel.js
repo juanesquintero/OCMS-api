@@ -43,7 +43,7 @@ var Notificacion = db.sequelize.define(
       allowNull: false
     }
   },
-  { timestamps: true }
+  // { timestamps: true }
 );
 
 module.exports = Notificacion;
