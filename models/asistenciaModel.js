@@ -29,6 +29,7 @@ var Asistencia = db.sequelize.define(
     }
   },
   // { timestamps: false }
+  { timestamps: false }
 );
 
 module.exports = Asistencia;

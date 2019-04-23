@@ -44,6 +44,7 @@ var Notificacion = db.sequelize.define(
     }
   },
   // { timestamps: true }
+  { timestamps: false }
 );
 
 module.exports = Notificacion;
