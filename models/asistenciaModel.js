@@ -28,7 +28,6 @@ var Asistencia = db.sequelize.define(
       allowNull: true
     }
   },
-  // { timestamps: false }
   { timestamps: false }
 );
 

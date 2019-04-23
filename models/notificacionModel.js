@@ -12,7 +12,7 @@ var Notificacion = db.sequelize.define(
         key: "identificacion"
       },
     },
-    actividad: {
+    evento: {
       type: Sequelize.STRING(30),
       allowNull: false,
       references: {

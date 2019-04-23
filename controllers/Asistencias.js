@@ -1,26 +1,26 @@
 var express = require("express");
 var router = express.Router();
-var Calendario = require("../models/calendarioModel");
+var Asistencia = require("../models/asistenciaModel");
 
-//GET Calendario
+//GET Asistencia
 router.get("/", (req, res) => {
-  Calendario.findAll()
-    .then(Calendarios => {
-      res.send(Calendarios);
+  Asistencia.findAll()
+    .then(Asistencias => {
+      res.send(Asistencias);
     })
     .catch(err => {
       res.send("error: " + err);
     });
 });
 
-//POST new Calendario
+//POST new Asistencia
 router.post("/", (req, res) => {
     if (!req.body) {
       return res
         .status(400)
         .sendStatus({ success: false, message: "Bad Request", info: null });
     } else {
-      Calendario.create(req.body)
+      Asistencia.create(req.body)
         .then(data => {
           res.send(data);
         })
@@ -30,14 +30,14 @@ router.post("/", (req, res) => {
     }
 });
 
-//DELETE Calendario
-router.delete("/:semestre", (req, res) => {
-    let sem = req.params.semestre;
-    Calendario.destroy({
-      where: { semestre: sem }
+//DELETE Asistencia
+router.delete("/:actividad", (req, res) => {
+    let activity = req.params.actividad;
+    Asistencia.destroy({
+      where: { actividad: activity }
     })
       .then(() => {
-        res.json({ satatus: "Calendario Eliminado" });
+        res.json({ satatus: "Asistencia Eliminado" });
       })
       .catch(err => {
         res.send("error: " + err);
@@ -45,19 +45,19 @@ router.delete("/:semestre", (req, res) => {
 });
 
 
-//PUT Calendario
-router.put("/:semestre", (req, res) => {
-    let sem = req.params.semestre;
+//PUT Asistencia
+router.put("/:actividad", (req, res) => {
+    let activity = req.params.actividad;
     if (!req.body) {
       return res
         .status(400)
         .sendStatus({ success: false, message: "Bad Request", info: null });
     } else {
-      Calendario.update(req.body, {
-        where: { semestre: sem }
+      Asistencia.update(req.body, {
+        where: { actividad: activity }
       })
         .then(() => {
-          res.json({ status: "Calendario actualizado" });
+          res.json({ status: "Asistencia actualizado" });
         })
         .catch(err => {
           res.json("error: " + err);
