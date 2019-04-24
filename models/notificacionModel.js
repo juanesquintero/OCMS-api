@@ -12,7 +12,7 @@ var Notificacion = db.sequelize.define(
         key: "identificacion"
       },
     },
-    actividad: {
+    evento: {
       type: Sequelize.STRING(30),
       allowNull: false,
       references: {
@@ -43,7 +43,8 @@ var Notificacion = db.sequelize.define(
       allowNull: false
     }
   },
-  { timestamps: true }
+  // { timestamps: true }
+  { timestamps: false }
 );
 
 module.exports = Notificacion;

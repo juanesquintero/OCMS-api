@@ -18,7 +18,7 @@ router.get("/:actividad", (req, res) => {
   let activity = req.params.actividad;
   Notificacion.findAll({
     where: {
-        actividad: activity
+        evento: activity
     }
   })
     .then(Notificacion => {
