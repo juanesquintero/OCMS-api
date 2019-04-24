@@ -71,7 +71,7 @@ var Programacion = db.sequelize.define(
       allowNull: true
     }
   },
-  { timestamps: true }
+  { timestamps: false }
 );
 
 module.exports = Programacion;
